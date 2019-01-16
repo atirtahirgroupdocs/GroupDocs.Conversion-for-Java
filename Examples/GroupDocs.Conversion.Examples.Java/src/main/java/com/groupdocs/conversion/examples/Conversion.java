@@ -400,6 +400,23 @@ public class Conversion {
 		System.out.print("Converted file path is: " + convertedDocumentPath);
 		//ExEnd:convertToPdfAsFilePath
 	}
+	/*
+	 * Skip empty rows and columns when converting a spreadsheet to PDF
+	 */
+	public static void convertToPdfSkipEmptyRowsColumns(String fileName) {
+		//ExStart:convertToPdfSkipEmptyRowsColumns
+		// Instantiating the conversion handler
+		ConversionHandler conversionHandler = new ConversionHandler(Utilities.getConfiguration());
+		PdfSaveOptions saveOption = new PdfSaveOptions(); 
+		CellsLoadOptions loadOptions = new CellsLoadOptions();
+		loadOptions.setSkipEmptyRowsAndColumns(false);
+		// Set absolute path to file
+		String guid = fileName;
+		ConvertedDocument convertedDocumentPath = conversionHandler.<String> convert(guid, loadOptions, saveOption);
+		convertedDocumentPath.save(fileName + "." + convertedDocumentPath.getFileType());
+		System.out.print("Converted file path is: " + convertedDocumentPath);
+		//ExEnd:convertToPdfSkipEmptyRowsColumns
+	}
 
 	/*
 	 * Convert document to pdf and get result as stream

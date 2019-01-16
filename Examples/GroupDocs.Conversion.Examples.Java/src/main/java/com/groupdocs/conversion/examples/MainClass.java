@@ -58,6 +58,9 @@ public class MainClass {
 
 		// convert to pdf and get result as path
 		//Conversion.convertToPdfAsFilePath("demo.docx");
+
+		// Skip empty rows and columns when converting a spreadsheet to PDF
+		//Conversion.convertToPdfSkipEmptyRowsColumns
 		
 		// convert to pdf and get result as stream
 		// Conversion.convertToPdfAsStream("demo.docx");
